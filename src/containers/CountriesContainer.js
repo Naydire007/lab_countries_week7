@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import CountriesTotal from '../components/CountriesTotal';
+import CountriesSelector from '../components/CountriesSelector';
 
 const CountriesContainer = () => {
+
     const [countries, setCountries] = useState([]);
 
     useEffect( () => {
@@ -19,9 +22,12 @@ const CountriesContainer = () => {
   
 
   return (
-    <p>This is the CountriesContainer</p>
+    <>
+        <p>This is the CountriesContainer</p>
+        <CountriesTotal flower={countries}/>
+        <CountriesSelector bunny={countries}/>
+    </>
   )
-
 
 
 }
