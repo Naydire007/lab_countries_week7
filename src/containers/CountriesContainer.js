@@ -7,6 +7,7 @@ const CountriesContainer = () => {
 
     const [countries, setCountries] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState (null);
+    const [favCountries, setFavCountries] = useState([]);
 
     useEffect( () => {
         loadCountries()
@@ -31,6 +32,10 @@ const CountriesContainer = () => {
       // console.log(countryObject); //once it's found it, log it out to the console.
       setSelectedCountry(countryObject);
   }
+
+  const addToFavourites = (country) => {
+    setFavCountries([...favCountries, country])
+  }
   
 //CountriesSelector is passed 2 props (bunny which is our countries array and countrySelected which is our function)
   return (
@@ -38,7 +43,7 @@ const CountriesContainer = () => {
         <p>This is the CountriesContainer</p>
         <CountriesTotal flower={countries}/>
         <CountriesSelector bunny={countries} countrySelected={countrySelected}/> 
-        <CountryDetails banana={selectedCountry}/>
+        <CountryDetails banana={selectedCountry} addToFavourites={addToFavourites}/>
     </>
   )
 
